@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head><title>OVO</title></head>
+<body>
+<h1>OVO page !</h1>
+<p>Welcome to OVO page</p>
+
+<form th:method="POST" th:action="@{/ovo}" th:object="${z}">
+    title: <input type="text" th:field="${z.title}" id="name"/>
+    <br/>
+    text: <input type="password" th:field="${z.text}" id="pass"/>
+    <br/>
+    <input type="submit" value="send"/>
+</form>
+
+</body>
+</html>

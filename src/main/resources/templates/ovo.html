@@ -1,0 +1,81 @@
+<!DOCTYPE HTML/>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Передача заявок ФГУП Охрана Росгвардии по Новгородской области</title>
+	<!--meta content="text/html; charset=Windows-1251" http-equiv="content-type"/-->
+    <meta charset="utf-8">
+    <link rel="shortcut icon" th:href="@{../static/favicon.ico}"/>
+	<style type="text/css">
+		body {
+			color: #334478;
+			background: #ffffff;
+            text-align:center;
+
+		    font-family: Arial, Helvetica, Verdana, sans-serif; /* Гарнитура шрифта */ 
+    		font-size: 16px; /* Размер текста */ 
+		    font-weight: lighter; /* Светлое начертание */ 
+		}
+		h1 {
+			text-align: center;
+		}
+        .myform{
+            text-align:left;
+			border-radius: 15px; 
+			background: #ffffff; /* Цвет фона */
+            border: 2px solid RGB(250,219,0);
+    		color: #777777; /* Цвет текста */
+    		padding: 15px; /* Поля вокруг текста */
+			display: inline-block;
+			width:60%;
+			/*градиент*/
+    		background: #fefcea; /* Для старых браузров */
+    		background: linear-gradient(to top, #fefcea, #f1da36);
+		}
+        .myform_l{
+			width:100%;
+		}
+        .myform_t{
+			/*height:50%;*/display: inline-block;
+		}
+        .myform_b{
+			width:70%;
+            max-width:300px;
+			background: #dddddd; /* Цвет фона */
+			border: 1px solid black;
+            border-radius: 3px; 
+			padding: 3px;
+
+		    font-family: Arial, Helvetica, Verdana, sans-serif; /* Гарнитура шрифта */ 
+    		font-size: 14px; /* Размер текста */ 
+		    font-weight: lighter; /* Светлое начертание */ 
+    		color: #444444; /* Цвет текста */
+		}
+        .myform_bp{
+			text-align:center;
+		}
+</style>
+
+</head>
+
+<body>
+
+<img th:src="@{/logo.png}" width="70px">
+
+<h1>Передача заявок на ТО ФГУП Охрана Росгвардии по Новгородской области</h1>
+<p>Введите заявку и нажмите отправить</p>
+
+<form th:method="POST" th:action="@{/ovo}" th:object="${z}" class="myform">
+    заголовок: <br/>
+    <input type="text" th:field="${z.title}" id="name" class="myform_l"/>
+    <br/><br/>
+    текст заявки:<br/> <!--input type="password" th:field="${z.text}" id="pass"/-->
+    <textarea cols="40" rows="10" th:field="${z.text}" id="pass"  class="myform_l myform_t"></textarea>
+    <br/>
+    <p class="myform_bp">
+      <input type="submit" value="Отправить заявку" class="myform_b"/>
+    </p>
+</form>
+
+</body>
+</html>
